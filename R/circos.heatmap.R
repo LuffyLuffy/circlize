@@ -374,20 +374,21 @@ circos.heatmap = function(mat, split = NULL, col, na.col = "grey",
 	    				(rep(nc - i, nr))[!l], 
 			            (1:nr)[!l], 
 			            (rep(nc - i + 1, nr))[!l], 
-			            border = col_mat[, i][!l], 
+			           # border = col_mat[, i][!l], 
+					border='white',
 			            col = col_mat[, i][!l])
 	    		}
 	    	} else {
 		        circos.rect(1:nr - 1, rep(nc - i, nr), 
 		            1:nr, rep(nc - i + 1, nr), 
-		            border = col_mat[, i], col = col_mat[, i])
+		            border = 'white', col = col_mat[, i])
 		       }
 	    }
 
 	    if(!is.na(bg.border)) {
 	    	circos.rect(CELL_META$cell.xlim[1], CELL_META$cell.ylim[1],
 	    		        CELL_META$cell.xlim[2], CELL_META$cell.ylim[2],
-	    		        border = bg.border, lwd = bg.lwd, lty = bg.lty, col = 'white')
+	    		        border = bg.border, lwd = bg.lwd, lty = bg.lty, col = NA)
 	    }
 
 	}, ...)
